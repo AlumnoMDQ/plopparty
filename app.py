@@ -29,13 +29,6 @@ class User(UserMixin, db.Model):
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-# Configuración del correo electrónico
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'tu_email@gmail.com'  # Cambiar a la dirección de correo para enviar los mensajes
-app.config['MAIL_PASSWORD'] = 'tu_contraseña'  # Cambiar a la contraseña de la cuenta de correo
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
 
 mail = Mail(app)
 
@@ -86,12 +79,14 @@ def logout():
 
 # Ruta para la página de contacto
 @app.route('/contacto', methods=['GET', 'POST'])
-@login_required  # Asegura que el usuario esté autenticado para acceder a esta ruta
+@login_required
 def contacto():
     if request.method == 'POST':
-        nombre = current_user.nombre_usuario  # Obtiene el nombre del usuario autenticado
-        email = current_user.email  # Obtiene el email del usuario autenticado
-        mensaje = request.form.get('mensaje', '')  # Asegúrate de que 'mensaje' se obtiene correctamente
+        nombre = current_user.nombre_usuario
+        email = current_user.email
+        mensaje = request.form.get('mensaje', '')
+
+        print(f'Debug: Nombre: {nombre}, Email: {email}, Mensaje: {mensaje}')  # Mensaje de depuración
 
         if not mensaje:
             flash('Por favor, ingrese un mensaje.', 'error')
@@ -104,14 +99,33 @@ def contacto():
                           recipients=['ploppartytermas@gmail.com'])  # Cambiar al correo destinatario
             msg.body = f'Nombre: {nombre}\nEmail: {email}\nConsulta:\n{mensaje}'
             mail.send(msg)
-            
+
+            print("Correo enviado exitosamente.")  # Mensaje de depuración
             flash('Consulta enviada correctamente.', 'success')
             return redirect(url_for('index'))
         except Exception as e:
+            print(f'Error al enviar el correo: {str(e)}')  # Mensaje de depuración
             flash(f'Error al enviar el correo: {str(e)}', 'error')
             return render_template('contacto.html')
-    
+
     return render_template('contacto.html')
+
+
+
+@app.route('/enviar_correo_prueba')
+def enviar_correo_prueba():
+    try:
+        msg = Message('Correo de Prueba - PlopParty',
+                      sender=app.config['MAIL_USERNAME'],
+                      recipients=['ploppartytermas@gmail.com'])  # Cambiar al correo destinatario
+        msg.body = 'Este es un correo de prueba desde PlopParty.'
+        mail.send(msg)
+
+        print("Correo de prueba enviado exitosamente.")  # Mensaje de depuración
+        return 'Correo de prueba enviado exitosamente.'
+    except Exception as e:
+        print(f'Error al enviar el correo de prueba: {str(e)}')  # Mensaje de depuración
+        return f'Error al enviar el correo de prueba: {str(e)}'
 
 # Ruta para la página de perfil del usuario
 @app.route('/perfil')

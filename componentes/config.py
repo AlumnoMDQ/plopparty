@@ -4,6 +4,6 @@ class Config:
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 465
     MAIL_USERNAME = 'consultasplopparty@gmail.com'
-    MAIL_PASSWORD = '123563Asd'
+    MAIL_PASSWORD = 'lhkd vtqw iahl ckiy'
     MAIL_USE_TLS = False
     MAIL_USE_SSL = True
