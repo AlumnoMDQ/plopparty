@@ -1,0 +1,35 @@
+<!-- templates/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - PlopParty</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <main>
+        <section class="hero">
+            <h1>Iniciar Sesión</h1>
+            {% with messages = get_flashed_messages(with_categories=false) %}
+            {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                <p class="flash-message">{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
+            <form action="/login" method="POST">
+                <input type="email" name="email" placeholder="Correo Electrónico" required>
+                <input type="password" name="contraseña" placeholder="Contraseña" required>
+                <button type="submit" class="cta">Iniciar Sesión</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

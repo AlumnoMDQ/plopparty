@@ -1,7 +1,9 @@
-# config.py
-class config:
-    MYSQL_HOST = '127.0.0.1'
-    MYSQL_USER = 'root'
-    MYSQL_PASSWORD = ''
-    MYSQL_DB = 'plopparty'
-    MYSQL_CURSORCLASS = 'DictCursor'
+class Config:
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:@localhost/plopparty'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    MAIL_SERVER = 'smtp.gmail.com'
+    MAIL_PORT = 465
+    MAIL_USERNAME = 'consultasplopparty@gmail.com'
+    MAIL_PASSWORD = '123563Asd'
+    MAIL_USE_TLS = False
+    MAIL_USE_SSL = True

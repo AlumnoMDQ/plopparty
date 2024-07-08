@@ -1,0 +1,54 @@
+<header>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">PlopParty</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/combos">Combos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contacto">Contacto</a>
+                    </li>
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/perfil">Perfil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Cerrar sesión</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/registro">Regístrate</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img src="https://www.mundodeportivo.com/files/og_thumbnail/uploads/2018/10/15/60e7aac020067.jpeg" alt="Imagen 1">
+            <!-- Puedes añadir más elementos según necesites -->
+            <img src="https://cdn0.casamiento.com.uy/article-real-wedding/659/3_2/960/jpg/19797.jpeg" alt="Imagen 2">
+            <img src="https://www.mundodeportivo.com/files/og_thumbnail/uploads/2018/10/15/60e7aac020067.jpeg" alt="Imagen 3">
+            <img src="https://cdn0.casamiento.com.uy/article-real-wedding/659/3_2/960/jpg/19797.jpeg" alt="Imagen 4">
+            <img src="https://www.mundodeportivo.com/files/og_thumbnail/uploads/2018/10/15/60e7aac020067.jpeg" alt="Imagen 5">
+            <img src="https://cdn0.casamiento.com.uy/article-real-wedding/659/3_2/960/jpg/19797.jpeg" alt="Imagen 6">
+        </div>
+    </div>
+</header>

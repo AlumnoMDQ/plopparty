@@ -3,6 +3,9 @@ project/
 ├── componentes/
 │   └── config.py
 │
+├── static/
+│   └── styles.css
+│
 ├── templates/
 │   └── registro.html
 │

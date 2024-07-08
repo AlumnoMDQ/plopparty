@@ -1,0 +1,25 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlopParty - Inicio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  
+  <!-- Incluir el encabezado actualizado -->
+  {% include 'header.html' %}
+  
+  <div class="container">
+    <h1>Bienvenido a PlopParty</h1>
+    <p>¡Tu tienda de cotillón y decoración para fiestas!</p>
+    <!-- Contenido de la página de inicio -->
+  </div>
+
+  <!-- Scripts y otros recursos -->
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

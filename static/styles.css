@@ -1,0 +1,223 @@
+/* static/styles.css */
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header and Navigation styles */
+header {
+    width: 100%;
+    background-color: #ff9aa2; /* Rosa pastel */
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative; /* Para posicionar el navbar sobre el carrusel */
+    z-index: 2; /* Asegura que el navbar esté por encima del carrusel */
+}
+
+.navbar {
+    background-color: #ffffff; /* Fondo blanco */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    display: flex;
+    justify-content: center; /* Centra los elementos del navbar */
+    align-items: center; /* Alinea los elementos verticalmente */
+}
+
+.navbar-brand {
+    font-size: 1.5rem; /* Tamaño de la fuente del logo */
+    color: #333; /* Color del texto */
+    margin-right: auto; /* Asegura que el logotipo se mantenga a la izquierda */
+}
+
+.navbar-nav {
+    display: flex; /* Asegura que los elementos se alineen en línea */
+    justify-content: center; /* Centra los elementos del navbar */
+    flex-grow: 1; /* Permite que el contenedor crezca para centrar los enlaces */
+}
+
+.nav-item {
+    margin-right: 15px; /* Espaciado entre elementos del navbar */
+}
+
+.nav-link {
+    color: #333; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 20px; /* Bordes redondeados */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave al cambiar color */
+    display: inline-block; /* Asegura que los enlaces sean de bloque en línea */
+}
+
+.nav-link:hover {
+    background-color: #007bff; /* Color de fondo al hacer hover */
+    color: #fff; /* Color del texto al hacer hover */
+}
+
+/* Botón Toggle */
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><path stroke="rgba(0, 0, 0, 0.5)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/></svg>');
+    width: 24px; /* Tamaño del icono */
+    height: 24px;
+}
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background-color: #ffffff; /* Fondo blanco para el menú desplegable */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Cambiar a columnas en dispositivos móviles */
+        align-items: center; /* Centrar elementos del navbar en móviles */
+    }
+
+    .nav-item {
+        margin-bottom: 10px; /* Espaciado inferior entre elementos del navbar */
+    }
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #ffffff; /* Blanco */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto; /* Centrar el contenedor hero */
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #d62828; /* Rojo pastel */
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero .cta {
+    text-decoration: none;
+    color: #fff;
+    background-color: #f3727f; /* Rosa pastel más intenso */
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.hero .cta:hover {
+    background-color: #ee6c7b; /* Rosa pastel más oscuro al hacer hover */
+}
+
+/* Mobile menu styles */
+@media (max-width: 700px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+}
+
+/* Carousel styles */
+.carousel-container {
+    width: 80%; /* Reducimos el ancho del carrusel */
+    overflow: hidden;
+    margin-top: 2rem;
+    max-width: 600px; /* Limitamos el ancho máximo del carrusel */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%; /* Asegura que la imagen ocupe todo el espacio disponible */
+    object-fit: cover; /* Ajusta el tamaño de la imagen para cubrir el espacio asignado */
+    height: auto; /* Usa la altura original de la imagen */
+    min-width: 100%; /* Asegura que la imagen no se achique más allá de su tamaño original */
+    display: block; /* Asegura que las imágenes se muestren como bloques */
+    margin-left: auto; /* Centra horizontalmente las imágenes */
+    margin-right: auto; /* Centra horizontalmente las imágenes */
+}
+
+.perfil-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.perfil-info {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.avatar {
+    margin-bottom: 20px;
+}
+
+.avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+form input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.buttons .button:hover {
+    background-color: #45a049;
+}

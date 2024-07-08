@@ -1,0 +1,25 @@
+<!-- templates/registro.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - PlopParty</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% include 'header.html' %}
+    <main>
+        <section class="hero">
+            <h1>Regístrate en PlopParty</h1>
+            <form action="/registro" method="POST">
+                <input type="text" name="username" placeholder="Nombre de Usuario" required>
+                <input type="email" name="email" placeholder="Correo Electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit" class="cta">Registrarse</button>
+            </form>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
