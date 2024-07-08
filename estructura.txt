@@ -1,0 +1,10 @@
+project/
+│
+├── componentes/
+│   └── config.py
+│
+├── templates/
+│   └── registro.html
+│
+├── app.py
+└── requirements.txt

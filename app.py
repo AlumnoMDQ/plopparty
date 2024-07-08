@@ -1,25 +1,35 @@
+from flask import request, render_template, redirect, url_for
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_mysqldb import MySQL
+from componentes.config import config
 
 app = Flask(__name__)
+app.config.from_object(config)
 
-# Configuración de la base de datos (MySQL, por ejemplo)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://usuario:contraseña@localhost/nombre_base_de_datos'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Deshabilita el seguimiento de modificaciones, opcional
+mysql = MySQL(app)
 
-db = SQLAlchemy(app)
+# app.py (continuación)
 
-class Cliente(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(100), nullable=False)
-    apellido = db.Column(db.String(100), nullable=False)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    contraseña = db.Column(db.String(255), nullable=False)
-    dirección = db.Column(db.String(255))
-    is_admin = db.Column(db.Boolean, default=False)
-    is_active = db.Column(db.Boolean, default=True)
-    edad = db.Column(db.Integer)
-    nombre_usuario = db.Column(db.String(50), unique=True, nullable=False)
-    imagen = db.Column(db.String(255))
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        
+        # Conectar a MySQL y ejecutar la consulta
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO usuarios_ (username, email, password, is_admin, is_active) VALUES (%s, %s, %s, %s, %s)", (username, email, password, False, True))
+        mysql.connection.commit()
+        cur.close()
+        
+        return redirect(url_for('index'))
+    
+    return render_template('registro.html')
+@app.route('/')
+def index():
+    return "Hello, World!"
 
-    # Puedes agregar métodos adicionales según sea necesario
+if __name__ == '__main__':
+    app.run(debug=True)
