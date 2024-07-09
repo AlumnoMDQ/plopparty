@@ -96,7 +96,7 @@ def contacto():
             # Enviar correo electrónico
             msg = Message('Consulta de Contacto - PlopParty',
                           sender=app.config['MAIL_USERNAME'],
-                          recipients=['ploppartytermas@gmail.com'])  # Cambiar al correo destinatario
+                          recipients=['@gmail.com'])  # Cambiar al correo destinatario
             msg.body = f'Nombre: {nombre}\nEmail: {email}\nConsulta:\n{mensaje}'
             mail.send(msg)
 
@@ -117,7 +117,7 @@ def enviar_correo_prueba():
     try:
         msg = Message('Correo de Prueba - PlopParty',
                       sender=app.config['MAIL_USERNAME'],
-                      recipients=['ploppartytermas@gmail.com'])  # Cambiar al correo destinatario
+                      recipients=['@gmail.com'])  # Cambiar al correo destinatario
         msg.body = 'Este es un correo de prueba desde PlopParty.'
         mail.send(msg)
 
